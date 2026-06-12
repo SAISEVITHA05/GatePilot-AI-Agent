@@ -377,4 +377,3 @@ with tab5:
 with st.sidebar:
     st.header("GatePilot AI")
     st.write("GATE DA Preparation Assistant")
-
