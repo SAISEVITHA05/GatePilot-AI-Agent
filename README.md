@@ -106,6 +106,29 @@ streamlit run app.py
 ---
 
 ## 📂 Project Structure
+gatepilot-ai/
+
+├── app.py              # Main Streamlit app
+
+├── study_plan.py       # Study plan generator
+
+├── quiz_agent.py        # Quiz generator
+
+├── doubt_solver.py      # AI doubt-solving tutor
+
+├── formula_sheet.py     # AI formula sheet generator
+
+├── groq_client.py       # Groq API wrapper (create yourself)
+
+├── gemini_client.py     # Gemini API wrapper (create yourself)
+
+├── syllabus.json        # GATE DA syllabus reference
+
+├── scores.json          # Stores quiz history
+
+├── style.css            # Theme & animations
+
+└── requirements.txt
 ---
 
 ## 💡 Vision
