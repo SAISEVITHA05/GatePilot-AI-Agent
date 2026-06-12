@@ -1,5 +1,10 @@
 import json
 import streamlit as st
+st.set_page_config(
+    page_title="GatePilot AI",
+    page_icon="🚀",
+    layout="wide"
+)
 import plotly.graph_objects as go
 import plotly.express as px
 
