@@ -2,7 +2,10 @@ import json
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
+import streamlit as st
 
+st.write("Groq Secret Exists:",
+         "GROQ_API_KEY" in st.secrets)
 
 from study_plan import generate_plan
 from quiz_agent import generate_quiz
