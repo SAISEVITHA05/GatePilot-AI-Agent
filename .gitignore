@@ -2,5 +2,3 @@ __pycache__/
 *.pyc
 venv/
 .streamlit/secrets.toml
-gemini_client.py
-groq_client.py
