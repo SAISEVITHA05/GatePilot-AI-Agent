@@ -1,0 +1,483 @@
+/* =====================================================
+   GATEPILOT AI THEME — v2
+   Navy Blue + Sky Blue + Golden Stars
+===================================================== */
+
+/* Background */
+.stApp {
+    background: linear-gradient(135deg, #020617, #0f172a, #082f49, #0c4a6e);
+    color: white;
+}
+
+/* =====================================================
+   MOVING STARS
+===================================================== */
+.stApp::before {
+    content: "";
+    position: fixed; top: 0; left: 0;
+    width: 200%; height: 200%;
+    background-image:
+        radial-gradient(circle, white 2px, transparent 2px),
+        radial-gradient(circle, #ffd700 3px, transparent 3px);
+    background-size: 250px 250px, 450px 450px;
+    background-position: 50px 50px, 120px 180px;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: starsMove 120s linear infinite;
+    z-index: 0;
+}
+
+.stApp::after {
+    content: "";
+    position: fixed; top: 0; left: 0;
+    width: 200%; height: 200%;
+    background-image:
+        radial-gradient(circle, #fff8dc 2px, transparent 2px),
+        radial-gradient(circle, #ffe066 4px, transparent 4px);
+    background-size: 350px 350px, 600px 600px;
+    opacity: 0.45;
+    pointer-events: none;
+    animation: starsMoveReverse 180s linear infinite;
+    z-index: 0;
+}
+
+@keyframes starsMove {
+    from { transform: translate(0px, 0px); }
+    to { transform: translate(-300px, -300px); }
+}
+
+@keyframes starsMoveReverse {
+    from { transform: translate(0px, 0px); }
+    to { transform: translate(250px, 250px); }
+}
+
+.main, .block-container, section[data-testid="stSidebar"] {
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+h1 {
+    text-align: center;
+    color: #dbeafe !important;
+    font-size: 3rem !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(56,189,248,0.3);
+}
+
+h2, h3, h4 {
+    color: #e0f2fe !important;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+section[data-testid="stSidebar"] {
+    background: rgba(2, 6, 23, 0.9);
+    border-right: 1px solid rgba(125,211,252,0.25);
+    backdrop-filter: blur(15px);
+}
+
+/* =====================================================
+   INPUTS
+===================================================== */
+input, textarea, .stSelectbox div[data-baseweb="select"] > div {
+    background: rgba(15,23,42,0.8) !important;
+    color: white !important;
+    border: 1px solid #38bdf8 !important;
+    border-radius: 12px !important;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 10px rgba(56,189,248,0.5) !important;
+    border-color: #fbbf24 !important;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+.stButton button {
+    background: linear-gradient(135deg, #2563eb, #38bdf8) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 15px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease;
+}
+
+.stButton button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(56,189,248,0.5);
+}
+
+/* =====================================================
+   TABS
+===================================================== */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 10px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(125,211,252,0.15);
+    border-radius: 18px;
+    padding: 10px 25px;
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background: rgba(56,189,248,0.15);
+    color: white;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, #1e40af, #38bdf8) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 0 10px rgba(56,189,248,0.3);
+    transform: scale(1.03);
+}
+
+/* =====================================================
+   RADIO BUTTON AREA
+===================================================== */
+.stRadio {
+    background: rgba(255,255,255,0.04);
+    padding: 12px;
+    border-radius: 12px;
+}
+
+/* =====================================================
+   ALERTS
+===================================================== */
+.stAlert {
+    border-radius: 15px;
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb {
+    background: #38bdf8;
+    border-radius: 20px;
+}
+
+/* =====================================================================
+   GLASS CARDS — generic container for plans, quiz Qs, dashboard stats
+   Usage: st.markdown('<div class="gp-card">...</div>', unsafe_allow_html=True)
+===================================================================== */
+.gp-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(56,189,248,0.2);
+    border-radius: 18px;
+    padding: 20px 24px;
+    margin: 14px 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.gp-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56,189,248,0.5);
+    box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+}
+
+/* =====================================================================
+   STAT / METRIC CARDS — for performance dashboard.py
+===================================================================== */
+.gp-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+}
+
+.gp-stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(125,211,252,0.18);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gp-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(56,189,248,0.2);
+}
+
+.gp-stat-label {
+    font-size: 13px;
+    color: #93c5fd;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.gp-stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fbbf24;
+    text-shadow: 0 0 12px rgba(251,191,36,0.35);
+}
+
+/* =====================================================================
+   TOPIC PILLS — strong/weak topics for dashboard.py & study_plan.py
+===================================================================== */
+.gp-pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin: 4px 5px;
+}
+
+.gp-pill-strong {
+    background: rgba(56,189,248,0.15);
+    color: #7dd3fc;
+    border: 1px solid rgba(56,189,248,0.3);
+}
+
+.gp-pill-weak {
+    background: rgba(251,191,36,0.15);
+    color: #fcd34d;
+    border: 1px solid rgba(251,191,36,0.3);
+}
+
+/* =====================================================================
+   QUIZ CARD — for quiz_agent.py one-question-at-a-time UI
+===================================================================== */
+.gp-quiz-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(56,189,248,0.25);
+    border-radius: 20px;
+    padding: 28px;
+    margin: 16px 0;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 35px rgba(0,0,0,0.3);
+}
+
+.gp-quiz-question {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e0f2fe;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.gp-quiz-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0c4a6e;
+    background: #38bdf8;
+    border-radius: 8px;
+    padding: 4px 10px;
+    margin-bottom: 14px;
+}
+
+/* Explanation box shown after submit */
+.gp-explanation {
+    background: rgba(56,189,248,0.08);
+    border-left: 4px solid #38bdf8;
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.gp-correct {
+    border-left-color: #4ade80 !important;
+    background: rgba(74,222,128,0.08) !important;
+}
+
+.gp-incorrect {
+    border-left-color: #f87171 !important;
+    background: rgba(248,113,113,0.08) !important;
+}
+
+/* =====================================================================
+   AI DOUBT SOLVER CHAT BUBBLES — for doubt_solver.py
+===================================================================== */
+.gp-chat-user {
+    background: rgba(251,191,36,0.1);
+    border: 1px solid rgba(251,191,36,0.25);
+    border-radius: 16px 16px 4px 16px;
+    padding: 12px 18px;
+    margin: 10px 0 10px auto;
+    max-width: 80%;
+    color: #fde68a;
+    text-align: right;
+}
+
+.gp-chat-ai {
+    background: rgba(56,189,248,0.08);
+    border: 1px solid rgba(56,189,248,0.22);
+    border-radius: 16px 16px 16px 4px;
+    padding: 14px 18px;
+    margin: 10px auto 10px 0;
+    max-width: 85%;
+    color: #e0f2fe;
+    line-height: 1.7;
+}
+
+.gp-chat-ai b, .gp-chat-ai strong {
+    color: #fbbf24;
+}
+.gp-chat-ai p {
+    margin: 4px 0 12px 0;
+}
+
+/* Section labels inside doubt solver answers (Definition, Example, etc.) */
+.gp-concept-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0c4a6e;
+    background: #fbbf24;
+    border-radius: 6px;
+    padding: 3px 10px;
+    margin: 10px 0 6px 0;
+}
+
+/* =====================================================================
+   STUDY PLAN ROADMAP — for study_plan.py
+===================================================================== */
+.gp-roadmap-day {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(125,211,252,0.15);
+    border-left: 4px solid #38bdf8;
+    border-radius: 0 14px 14px 0;
+    padding: 14px 20px;
+    margin: 10px 0;
+    transition: all 0.25s ease;
+}
+
+.gp-roadmap-day:hover {
+    border-left-color: #fbbf24;
+    background: rgba(56,189,248,0.06);
+    transform: translateX(4px);
+}
+
+.gp-roadmap-day-title {
+    font-weight: 700;
+    color: #fbbf24;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* =====================================================================
+   FOCUS BANNER — motivational, appears on dashboard / home
+===================================================================== */
+.gp-focus-banner {
+    background: linear-gradient(135deg, rgba(30,58,138,0.35), rgba(56,189,248,0.12));
+    border: 1px solid rgba(56,189,248,0.3);
+    border-radius: 16px;
+    padding: 16px 22px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+    color: #e0f2fe;
+    animation: gpGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes gpGlowPulse {
+    0%, 100% { box-shadow: 0 0 0px rgba(56,189,248,0); }
+    50% { box-shadow: 0 0 25px rgba(56,189,248,0.18); }
+}
+
+.gp-focus-banner b { color: #fbbf24; }
+
+/* Twinkling inline spark icon */
+@keyframes gpTwinkle {
+    0%, 100% { opacity: 0.25; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
+.gp-spark {
+    display: inline-block;
+    color: #fcd34d;
+    animation: gpTwinkle 2.2s ease-in-out infinite;
+}
+/* Plotly chart container */
+.js-plotly-plot {
+    border: 1px solid rgba(56,189,248,0.15);
+    border-radius: 16px;
+    padding: 10px;
+    background: rgba(255,255,255,0.02);
+    transition: box-shadow 0.3s ease;
+}
+
+.js-plotly-plot:hover {
+    box-shadow: 0 0 25px rgba(56,189,248,0.12);
+}
+/* =====================================================================
+   PROGRESS BAR override (st.progress)
+===================================================================== */
+.stProgress > div > div > div {
+    background: linear-gradient(90deg, #1e3a8a, #38bdf8, #fbbf24) !important;
+    border-radius: 20px;
+}
+
+/* =====================================================================
+   METRIC CARDS (st.metric) styling
+===================================================================== */
+[data-testid="stMetric"] {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(125,211,252,0.18);
+    border-radius: 16px;
+    padding: 14px 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-testid="stMetric"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(56,189,248,0.2);
+}
+
+[data-testid="stMetricValue"] {
+    color: #fbbf24 !important;
+}
+/* =====================================================================
+   FORMULA SHEET — LaTeX blocks
+===================================================================== */
+.katex-display, .katex {
+    color: #e0f2fe !important;
+}
+
+[data-testid="stMarkdownContainer"] .katex-display {
+    background: rgba(56,189,248,0.06);
+    border: 1px solid rgba(56,189,248,0.2);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 8px 0;
+    overflow-x: auto;
+}
+
+/* Formula name headings */
+.gp-formula-name {
+    font-weight: 700;
+    color: #fbbf24;
+    font-size: 15px;
+    margin-top: 16px;
+}
+
+/* hr divider between formulas */
+hr {
+    border: none;
+    border-top: 1px solid rgba(125,211,252,0.15);
+    margin: 18px 0;
+}
